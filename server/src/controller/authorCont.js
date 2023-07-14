@@ -12,6 +12,7 @@ const register = async function (req, res) {
             return res.status(400).send({ status: false, msg: "Mandatory fields are required !"})
         }
         email=email.toLowerCase();
+        fullName=fullName.trim();email=email.trim();password=password.trim();
 
         if(! validTitle(title)){
             return res.status(400).send({ status: false, msg: "Title must be [Mr / Mrs / Miss]" })
@@ -51,6 +52,7 @@ const login = async function (req, res) {
         }
 
         email=email.toLowerCase()
+        email=email.trim();password=password.trim();
 
         let user = await authorModel.findOne({ email })
         if (!user) {
