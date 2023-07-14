@@ -8,7 +8,7 @@ const Login = () => {
   const [email,setEmail]=useState("");
   const [pass,setPass]=useState("");
   const navigate=useNavigate();
-  const submit=(e)=>{
+  const submit=async (e)=>{
     e.preventDefault();
     if( ! loginValidate({email,pass})) return;
     console.log(email,pass);
