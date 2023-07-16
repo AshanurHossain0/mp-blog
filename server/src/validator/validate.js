@@ -17,4 +17,13 @@ const validTitle=(title)=>{
     return (title==="Mr" || title==="Mrs" || title==="Miss");
 }
 
-module.exports={validEmail,validName,validTitle}
+const validCity=(city)=>{
+    cityArr=city.split(" ");
+    let cityReg=/^[A-Za-z]+$/;
+    for(let i=0;i<city.length;i++){
+        if(!cityReg.test(cityArr[i])) return false;
+    }
+    return true;
+}
+
+module.exports={validEmail,validName,validTitle, validCity}

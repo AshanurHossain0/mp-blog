@@ -1,3 +1,4 @@
+require('dotenv').config();
 const jwt=require("jsonwebtoken")
 
 const authentication = async function (req, res , next) {
@@ -6,17 +7,9 @@ const authentication = async function (req, res , next) {
         if (!token) return res.status(401).send({ status: false, msg: "Token is not provided" })
 
 
-        jwt.verify(token, "recipesApp", function (err, decodedToken) {
+        jwt.verify(token,process.env.SECRET, function (err, decodedToken) {
             if (err) {
-                if (err.name === 'JsonWebTokenError') {
-                    return res.status(401).send({ status: false, msg: "Invalid token" });
-                }
-
-                if (err.name === 'TokenExpiredError') {
-                    return res.status(401).send({ status: false, msg: "You are logged out, login again" });
-                } else {
-                    return res.send({status:false, msg: err.message });
-                }
+                return res.status(403).send({status:false, msg: err.name });
             } else {
                 req.token = decodedToken;
                 next();
