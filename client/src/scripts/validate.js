@@ -36,6 +36,26 @@ const validEmail = (email)=> {
     }
     return true;
 }
+const matchPass=(pass,pass2)=>{
+    if(!pass){
+        toast.warn("Password is mandatory");
+        return false;
+    };
+    if(pass.length<8){
+        toast.warn("Password is too short");
+        return false;
+    }
+    if(pass.length>16){
+        toast.warn("Password is too long");
+        return false;
+    }
+    if(pass !== pass2){
+        toast.warn("Password does not match");
+        return false;
+    }
+    return true;
+}
+
 const validPass=(pass)=>{
     if(!pass){
         toast.warn("Password is mandatory");
@@ -52,12 +72,28 @@ const validPass=(pass)=>{
     return true;
 }
 
-const regValidate=({title,fullName,email,pass})=>{
+const validCity=(city)=>{
+    if(!city){
+        toast.warn("City is mandatory");
+        return false;
+    }
+    const cityArr=city.split(" ");
+    let cityReg=/^[A-Za-z]+$/;
+    for(let i=0;i<city.length;i++){
+        if(!cityReg.test(cityArr[i])){
+            toast.warn("Invalid city name");
+            return false;
+        }
+    }
+    return true;
+}
+
+const regValidate=({title,fullName,city,email,pass,pass2})=>{
     if(!title){
         toast.warn("Select Mr / Miss / Mrs");
         return false;
     };
-    return (validEmail(email) && validName(fullName) && validPass(pass));
+    return (validEmail(email) && validName(fullName) && matchPass(pass,pass2)) && validCity(city);
 }
 const loginValidate=({email,pass})=>{
     return (validEmail(email) &&  validPass(pass));

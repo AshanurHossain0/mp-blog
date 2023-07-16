@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import Logout from './Logout';
+import {  useSelector } from 'react-redux/es/hooks/useSelector';
 
 const Navbar = () => {
 
-  const [toggle, setToggle] = useState("hidden")
+  const [toggle, setToggle] = useState("hidden");
+  const userData=useSelector(state=>state.user);
 
   return (
     <nav className='bg-white h-auto md:h-16  flex flex-col md:flex-row md:items-center md:justify-between w-full border border-indigo-200 border-b-2'>
@@ -21,12 +23,16 @@ const Navbar = () => {
 
       <div className={'flex flex-col items-start md:flex-row md:items-center font-mono md:block ' + toggle} >
         <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-4 md:mx-6 md:my:0' to="/">Home</Link>
+        <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-4 md:mx-6 md:my:0' to="/user/dashboard">Dashboard</Link>
         <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-4 md:mx-6 md:my:0' to="/about">About</Link>
-
         <Logout/>
-        
-
+        {
+          (userData.fullName)?
+          <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-4 md:mx-6 md:my:0' to="/user/profile">{userData.fullName.split(" ")[0]}</Link>
+          :<></>
+        }
       </div>
+      
     </nav>
   )
 }
