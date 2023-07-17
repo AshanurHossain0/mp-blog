@@ -94,4 +94,23 @@ const getUser = async function (req, res) {
     }
 }
 
-module.exports={register,login,getUser}
+const updateUser= async function(req,res){
+    try {
+        const userId=req.token.userId;
+        let {fullName,city}=req.body;
+        if(!fullName || !city) return res.status(400).send({status:false,msg:"Mandatory fields are required"});
+
+        fullName=fullName.trim();city=city.trim();
+        let user = await authorModel.findByIdAndUpdate(userId,{fullName,city});
+        if (!user) {
+            return res.status(400).send({ status: false, msg: "No user is found"})
+        }
+
+        return res.status(200).send({ status: true,msg:"Profile updated successfully"})
+    }
+    catch(err){
+        res.status(500).send({status:false, msg:err.message})
+    }
+}
+
+module.exports={register,login,getUser,updateUser}
