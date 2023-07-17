@@ -53,7 +53,7 @@ const Register = () => {
           <input value={fullName} onChange={(e)=>{setFullName(e.target.value)}} className='outline-0 border-slate-600 border-b-[1px] p-1  my-1 md:my-2 mx-2 md:mx-4 text-lg md:text-xl' type="text" placeholder='Enter your full name'  autoComplete="off" />
           <input value={city} onChange={(e)=>{setCity(e.target.value)}} className='outline-0 border-slate-600 border-b-[1px] p-1  my-1 md:my-2 mx-2 md:mx-4 text-lg md:text-xl' type="text" placeholder='Enter your city name'  autoComplete="off" />
           <input value={email} onChange={(e)=>{setEmail(e.target.value)}} className='outline-0 border-slate-600 border-b-[1px] p-1  my-1 md:my-2 mx-2 md:mx-4 text-lg md:text-xl' type="text" placeholder='Enter your email'  autoComplete="off" />
-          <input value={pass} onChange={(e)=>{setPass(e.target.value)}} className='outline-0 border-slate-600 border-b-[1px] p-1  my-1 md:my-2 mx-2 md:mx-4 text-lg md:text-xl' type="password" placeholder='Enter your password'  autoComplete="off" />
+          <input value={pass} onChange={(e)=>{setPass(e.target.value)}} className='outline-0 border-slate-600 border-b-[1px] p-1  my-1 md:my-2 mx-2 md:mx-4 text-lg md:text-xl' type="password" placeholder='Enter password'  autoComplete="off" />
           <input value={pass2} onChange={(e)=>{setPass2(e.target.value)}} className='outline-0 border-slate-600 border-b-[1px] p-1  my-1 md:my-2 mx-2 md:mx-4 text-lg md:text-xl' type="password" placeholder='Confirm password'  autoComplete="off" />
           <div  className='mt-6 md:mt-8 mx-2 flex flex-col items-center'>
             <button type='submit' className='w-64 p-1 md:p-2 text-lg md:text-xl text-white rounded-md bg-blue-500 hover:bg-blue-600 m-1 md:m-2'>Register Now</button>
@@ -61,7 +61,7 @@ const Register = () => {
           </div>
         </form>
       </div>
-      <ToastContainer/>
+      <ToastContainer theme="colored"/>
     </div>
   )
 }

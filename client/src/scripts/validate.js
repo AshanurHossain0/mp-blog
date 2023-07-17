@@ -99,4 +99,8 @@ const loginValidate=({email,pass})=>{
     return (validEmail(email) &&  validPass(pass));
 }
 
-export {regValidate,loginValidate}
+const profileValidate=({fullName,city})=>{
+    return validName(fullName) && validCity(city);
+}
+
+export {regValidate,loginValidate,profileValidate}

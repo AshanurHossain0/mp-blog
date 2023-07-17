@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { loginValidate } from '../scripts/validate';
@@ -8,10 +9,12 @@ import { useDispatch } from 'react-redux/es/exports';
 import { add } from '../store/userSlice';
 
 const Login = () => {
+  const userData=useSelector(state=>state.user);
+  const navigate=useNavigate();
   const dispatch=useDispatch();
   const [email,setEmail]=useState("");
   const [pass,setPass]=useState("");
-  const navigate=useNavigate();
+  
   const submit=async (e)=>{
     e.preventDefault();
     if( ! loginValidate({email,pass})) return;
@@ -19,7 +22,7 @@ const Login = () => {
     .then((res)=>{
       setEmail("");setPass("");
       localStorage.setItem("token",res.data.token);
-      dispatch(add({fullName:res.data.data.fullName,userId:res.data.data._id}));
+      dispatch(add({fullName:res.data.data.fullName,userId:res.data.data._id,city:res.data.data.city,email:res.data.data.email}));
       navigate("/");
     })
     .catch((err)=>{
@@ -28,7 +31,8 @@ const Login = () => {
     })
   }
 
-  return (
+  return ((!userData.fullName) && (!localStorage.getItem("token")))?
+  (
     <div className='w-full h-auto flex justify-center'>
       <div className=' w-full m-6 md:m-0 md:w-1/2 h-auto md:my-20 shadow-lg bg-indigo-50'>
         <div  className='m-6 md:my-8 mx-2 flex justify-center text-2xl md:text-3xl font-semibold text-indigo-600'>
@@ -43,9 +47,10 @@ const Login = () => {
           </div>
         </form>
       </div>
-      <ToastContainer/>
+      <ToastContainer theme="colored"/>
     </div>
-  )
+  ):
+  <Navigate to="/" />
 }
 
 export default Login
