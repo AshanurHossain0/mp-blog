@@ -3,6 +3,8 @@ const authorModel=require('../models/authorModel');
 const bcrypt=require("bcrypt");
 const jwt=require('jsonwebtoken');
 const {validEmail,validName,validTitle, validCity}=require('../validator/validate');
+const mailUser= require('../Mail/mail');
+const otpGntr=require('otp-generator')
 
 const register = async function (req, res) {
     try {
@@ -36,12 +38,23 @@ const register = async function (req, res) {
 
         const findUser = await authorModel.findOne({email})
         if (findUser) {
-            return res.status(400).send({ status: false, msg: "Email already exist, login now"})
+            if(findUser.active===true){
+                return res.status(400).send({ status: false, msg: "Email already exist, login now"})
+            }
+            await authorModel.findByIdAndDelete(findUser._id);
         }
-        const hashedPass = bcrypt.hashSync(password,8)
+        const hashedPass = bcrypt.hashSync(password,8);
 
-        const data = await authorModel.create({ fullName, city, title, email, password:hashedPass })
-        res.status(201).send({ status: true,data})
+        const otp=await otpGntr.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets:false});
+        const msgBody={
+            from:process.env.GMAIL,
+            to:email,
+            subject:`Your email verification otp for MP-Blog is ${otp} ,thank you :)`
+        }
+        await mailUser(msgBody);
+
+        await authorModel.create({ fullName, city, title, email, password:hashedPass, otp,createdAt:Date.now()})
+        res.status(200).send({ status: true,msg:"Verify your email id now"})
     }
     catch (err) {
         res.status(500).send({ status: false, msg: err.message })
@@ -58,7 +71,7 @@ const login = async function (req, res) {
         email=email.toLowerCase()
         email=email.trim();password=password.trim();
 
-        let user = await authorModel.findOne({ email })
+        let user = await authorModel.findOne({ email,active:true })
         if (!user) {
             return res.status(400).send({ status: false, msg: "No user is found with this email"})
         }
@@ -113,4 +126,38 @@ const updateUser= async function(req,res){
     }
 }
 
-module.exports={register,login,getUser,updateUser}
+const verifyOtp=async function(req,res){
+    try{
+        const {otp,email}=req.body;
+        const user=await authorModel.findOne({email:email,active:false});
+        if(!user) return res.status(404).send({status:false,msg:"Register at first"});
+        if(user.otp != otp) return res.status(400).send({status:false,msg:"Invalid otp"});
+        if((Date.now() - user.createdAt)>(1000*180)) return res.status(400).send({status:false,msg:"Time up, resend otp"});
+        await authorModel.findOneAndUpdate({email},{active:true,createdAt:Date.now()});
+        return res.status(201).send({status:true,msg:"Success"});
+    }
+    catch(err){
+        res.status(500).send({status:false, msg:err.message});
+    }
+}
+const resendOtp=async function(req,res){
+    try{
+        const {email}=req.body;
+        const user=await authorModel.findOne({email:email,active:false});
+        if(!user) return res.status(404).send({status:false,msg:"Register at first"});
+        
+        const otp=await otpGntr.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets:false});
+        const msgBody={
+            from:process.env.GMAIL,
+            to:email,
+            subject:`Your email verification otp for MP-Blog is ${otp} ,thank you :)`
+        }
+        await mailUser(msgBody);
+        return res.status(201).send({status:true,msg:"Success"});
+    }
+    catch(err){
+        res.status(500).send({status:false, msg:err.message});
+    }
+}
+
+module.exports={register,login,getUser,updateUser,verifyOtp,resendOtp}

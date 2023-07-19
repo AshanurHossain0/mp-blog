@@ -25,6 +25,16 @@ const authorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    active:{
+        type:Boolean,
+        default:false
+    },
+    otp:{
+        type:Number,
+    },
+    createdAt:{
+        type:Number
+    },
     likes:{
         type:Object
     }
