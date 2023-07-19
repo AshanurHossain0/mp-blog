@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { useNavigate,Navigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,6 +14,12 @@ const Login = () => {
   const dispatch=useDispatch();
   const [email,setEmail]=useState("");
   const [pass,setPass]=useState("");
+
+  useEffect(()=>{
+    if(localStorage.getItem("msg")) toast.success("otp verification successfull");
+    localStorage.removeItem("msg");
+  },[])
+
   
   const submit=async (e)=>{
     e.preventDefault();

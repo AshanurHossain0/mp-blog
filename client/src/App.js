@@ -14,6 +14,7 @@ import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Profile from './components/Profile';
+import Verify from './components/Verify';
 
 function App() {
   const dispatch=useDispatch();
@@ -36,6 +37,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
+          <Route path='/verify' element={<Verify/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/user' element={<PrivateRoute/>}>
             <Route path="dashboard" element={<Dashboard/>} />

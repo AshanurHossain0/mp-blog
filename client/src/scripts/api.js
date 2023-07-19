@@ -45,3 +45,30 @@ export const updateProfile = async (info) => {
         throw new Error(err.response.data.msg);
     }
 }
+export const verifyOtp = async (info) => {
+    const config = {
+        headers: { "Content-Type": "application/json" },
+    }
+    const body = JSON.stringify({...info,email:localStorage.getItem("email")});
+    try {
+        const res = await axios.post(`http://localhost:3001/register/verify`, body, config);
+        localStorage.removeItem("email");
+        return res;
+    }
+    catch (err) {
+        throw new Error(err.response.data.msg);
+    }
+}
+export const resendOtp = async () => {
+    const config = {
+        headers: { "Content-Type": "application/json" },
+    }
+    const body = JSON.stringify({email:localStorage.getItem("email")});
+    try {
+        const res = await axios.post(`http://localhost:3001/register/resend`, body, config)
+        return res;
+    }
+    catch (err) {
+        throw new Error(err.response.data.msg);
+    }
+}
