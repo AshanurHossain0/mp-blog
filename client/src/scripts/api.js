@@ -7,7 +7,7 @@ export const register = async (info) => {
     }
     const body = JSON.stringify(info);
     try {
-        const res = await axios.post(`http://localhost:3001/register`, body, config)
+        const res = await axios.post(`https://mp-blog.onrender.com/register`, body, config)
         return res;
     }
     catch (err) {
@@ -20,7 +20,7 @@ export const login = async (info) => {
     }
     const body = JSON.stringify(info);
     try {
-        const res = await axios.post(`http://localhost:3001/login`, body, config)
+        const res = await axios.post(`https://mp-blog.onrender.com/login`, body, config)
         return res;
     }
     catch (err) {
@@ -38,7 +38,7 @@ export const updateProfile = async (info) => {
     }
     const body = JSON.stringify(info);
     try {
-        const res = await axios.patch(`http://localhost:3001/user`, body, config);
+        const res = await axios.patch(`https://mp-blog.onrender.com/user`, body, config);
         return res;
     }
     catch (err) {
@@ -51,7 +51,7 @@ export const verifyOtp = async (info) => {
     }
     const body = JSON.stringify({...info,email:localStorage.getItem("email")});
     try {
-        const res = await axios.post(`http://localhost:3001/register/verify`, body, config);
+        const res = await axios.post(`https://mp-blog.onrender.com/register/verify`, body, config);
         localStorage.removeItem("email");
         return res;
     }
@@ -65,7 +65,7 @@ export const resendOtp = async () => {
     }
     const body = JSON.stringify({email:localStorage.getItem("email")});
     try {
-        const res = await axios.post(`http://localhost:3001/register/resend`, body, config)
+        const res = await axios.post(`https://mp-blog.onrender.com/register/resend`, body, config)
         return res;
     }
     catch (err) {

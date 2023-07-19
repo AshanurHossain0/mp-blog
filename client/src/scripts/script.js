@@ -8,7 +8,7 @@ export const loadUser = async (token) => {
         },
     };
     try {
-        const res = await axios.get(`http://localhost:3001/user`, config);
+        const res = await axios.get(`https://mp-blog.onrender.com/user`, config);
         return res;
     }
     catch (err) {
