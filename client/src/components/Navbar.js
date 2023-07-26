@@ -22,13 +22,13 @@ const Navbar = () => {
       </div>
 
       <div className={'flex flex-col items-start md:flex-row md:items-center font-ubuntu md:block ' + toggle} >
-        <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-2 md:mx-6 md:my:0' to="/">Home</Link>
-        <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-2 md:mx-6 md:my:0' to="/user/dashboard">Dashboard</Link>
-        <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-2 md:mx-6 md:my:0' to="/about">About</Link>
+        <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-2 md:mx-6 md:my:0' onClick={()=>{setToggle("hidden")}} to="/">Home</Link>
+        <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-2 md:mx-6 md:my:0' onClick={()=>{setToggle("hidden")}} to="/user/dashboard">Dashboard</Link>
+        <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-2 md:mx-6 md:my:0' onClick={()=>{setToggle("hidden")}} to="/about">About</Link>
         <Logout />
         {
           (userData.fullName)?
-          <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-4 md:mx-6 md:my:0' to="/user/profile">{userData.fullName.split(" ")[0]}</Link>
+          <Link className='hover:text-cyan-500 text-xl duration-500 mx-4 my-4 md:mx-6 md:my:0' onClick={()=>{setToggle("hidden")}} to="/user/profile">{userData.fullName.split(" ")[0]}</Link>
           :<></>
         }
       </div>
