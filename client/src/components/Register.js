@@ -49,7 +49,7 @@ const Register = () => {
 
   return (
     <div className='w-full h-auto flex justify-center'>
-      <div className=' w-full m-2  md:w-1/2 h-auto md:m-6 shadow-lg bg-indigo-50'>
+      <div className=' w-full m-2  md:w-1/2 h-auto md:m-6 shadow-xl bg-indigo-50'>
         <div className='m-6 md:my-8 mx-2 flex justify-center text-2xl md:text-3xl font-semibold text-indigo-600'>
           <p>Welcome Dear</p>
         </div>
