@@ -10,7 +10,7 @@ const Home = () => {
       </header>
       <main className="p-4">
         <div className="max-w-4xl mx-auto">
-          <p className="text-gray-800 text-lg md:text-2xl mb-4 text-center">
+          <p className="text-yellow-900 text-lg md:text-2xl mb-4 text-center">
             Discover the World of Inspiration, Knowledge, and Creativity at MP-Blog.
           </p>
           <div className="md:flex md:justify-between">

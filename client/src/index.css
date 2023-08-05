@@ -4,3 +4,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Ubuntu:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+
+.poster{
+    background-image: url("https://images.pexels.com/photos/2909077/pexels-photo-2909077.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.poster2{
+    background-image: url("https://images.pexels.com/photos/9088822/pexels-photo-9088822.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
