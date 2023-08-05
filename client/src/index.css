@@ -11,7 +11,19 @@
     background-size: cover;
 }
 .poster2{
-    background-image: url("https://images.pexels.com/photos/9088822/pexels-photo-9088822.jpeg?auto=compress&cs=tinysrgb&w=600");
+    /* background-image: url("https://images.pexels.com/photos/4919373/pexels-photo-4919373.jpeg?auto=compress&cs=tinysrgb&w=600"); */
+    /* background-image: url("https://images.pexels.com/photos/3764000/pexels-photo-3764000.jpeg?auto=compress&cs=tinysrgb&w=600"); */
+    /* background-image: url("https://images.pexels.com/photos/2662792/pexels-photo-2662792.jpeg?auto=compress&cs=tinysrgb&w=600"); */
+    
+    background-image: url("https://images.pexels.com/photos/7288168/pexels-photo-7288168.jpeg?auto=compress&cs=tinysrgb&w=600");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 800px;
+    background-position: center;
+}
+.poster3{
+    background-image: url("https://images.pexels.com/photos/1927320/pexels-photo-1927320.jpeg?auto=compress&cs=tinysrgb&w=600");
+    /* background-image: url("https://images.pexels.com/photos/3764000/pexels-photo-3764000.jpeg?auto=compress&cs=tinysrgb&w=600"); */
+    background-repeat: no-repeat;
+    background-size: 800px;
+    background-position: center;
 }

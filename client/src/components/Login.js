@@ -39,7 +39,7 @@ const Login = () => {
 
   return ((!userData.fullName) && (!localStorage.getItem("token")))?
   (
-    <div className='w-full h-auto flex justify-center poster2'>
+    <div className='w-full h-auto flex justify-center poster3'>
       <div className=' w-full m-6 md:m-0 md:w-1/2 h-auto md:my-20 '>
         <div  className='m-6 md:my-8 mx-2 flex justify-center text-2xl md:text-3xl font-semibold text-indigo-600'>
           <p>Happy to see you</p>
