@@ -9,6 +9,7 @@ const createBlog=async function(req,res){
         for(let i=0;i<tag.length;i++){
             tag[i]=tag[i].trim();
         }
+        blog.tag=tag;
         blog.authorId=req.token.userId;
         blog.publishedAt=new Date().toLocaleString();
         await blogModel.create(blog);

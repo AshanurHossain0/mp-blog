@@ -19,11 +19,11 @@ const blogSchema=new mongoose.Schema({
     tags:{
         type:[String]
     },
-    Subject: {
+    subject: {
         type:String,
         required:true
     },
-    Topic: {
+    topic: {
         type:String,
         required:true
     },
