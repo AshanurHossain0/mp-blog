@@ -16,9 +16,13 @@ const blogSchema=new mongoose.Schema({
         ref:"Author",
         required:true
     },
-    tags:{
-        type:[String]
-    },
+    tag:[
+        {
+            type:String,
+            trim:true,
+            lowercase:true
+        }
+    ],
     subject: {
         type:String,
         required:true
