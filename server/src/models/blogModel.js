@@ -32,7 +32,7 @@ const blogSchema=new mongoose.Schema({
         default: false
     },
     publishedAt:{
-        type:Date
+        type:String
     }
 
 });
