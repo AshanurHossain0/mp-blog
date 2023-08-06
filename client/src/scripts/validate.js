@@ -103,4 +103,26 @@ const profileValidate=({fullName,city})=>{
     return validName(fullName) && validCity(city);
 }
 
-export {regValidate,loginValidate,profileValidate}
+const validBlog=({title,topic,subject,tag,body})=>{
+    if(!title || !topic || !subject || !tag || !body){
+        toast.warn("All the fields are required!");
+        return false;
+    } 
+    let reg=/^[A-Z a-z]+$/;
+    if(! reg.test(topic)) {
+        toast.warn("Invalid topic!");
+        return false;
+    }
+    if(! reg.test(subject)) {
+        toast.warn("Invalid subject!");
+        return false;
+    }
+    if(body.length<30){
+        toast.warn("Blog is too short!");
+        return false;
+    }
+    return true;
+
+}
+
+export {regValidate,loginValidate,profileValidate,validBlog}

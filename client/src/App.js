@@ -15,6 +15,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Profile from './components/Profile';
 import Verify from './components/Verify';
+import PostBlog from './components/Blog/PostBlog';
 
 function App() {
   const dispatch=useDispatch();
@@ -42,6 +43,7 @@ function App() {
           <Route path='/user' element={<PrivateRoute/>}>
             <Route path="dashboard" element={<Dashboard/>} />
             <Route path="profile" element={<Profile/>} />
+            <Route path="post-blog" element={<PostBlog/>} />
           </Route>
         </Routes>
       </div>     
