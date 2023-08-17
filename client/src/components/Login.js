@@ -29,7 +29,6 @@ const Login = () => {
       setEmail("");setPass("");
       localStorage.setItem("token",res.data.token);
       dispatch(add({fullName:res.data.data.fullName,userId:res.data.data._id,city:res.data.data.city,email:res.data.data.email}));
-      navigate("/");
     })
     .catch((err)=>{
       toast.error(err.message);
@@ -56,7 +55,7 @@ const Login = () => {
       <ToastContainer theme="colored"/>
     </div>
   ):
-  <Navigate to="/" />
+  <Navigate to="/user/dashboard" />
 }
 
 export default Login

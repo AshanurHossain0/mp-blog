@@ -7,7 +7,7 @@ const Dashboard = () => {
     <div className="bg-slate-700 p-4">
       <div className='grid gap-4 md:grid-cols-2'>
         <div className=''>
-          <div class='m-2'>
+          <div className='m-2'>
             <Link to="/user/post-blog" className="flex flex-col items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl bg-blue-200 hover:bg-blue-300 p-4">
               <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://images.pexels.com/photos/4240505/pexels-photo-4240505.jpeg?auto=compress&cs=tinysrgb&w=600" alt="blogs" />
               <div className="flex flex-col justify-between p-4 leading-normal">
@@ -16,7 +16,7 @@ const Dashboard = () => {
               </div>
             </Link>
           </div>
-          <div class='m-2'>
+          <div className='m-2'>
             <Link to="" className="flex flex-col items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl bg-blue-200 hover:bg-blue-300 p-4">
               <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&w=600" alt="find-blogs" />
               <div className="flex flex-col justify-between p-4 leading-normal">
@@ -25,7 +25,7 @@ const Dashboard = () => {
               </div>
             </Link>
           </div>
-          <div class='m-2'>
+          <div className='m-2'>
             <Link to="" className="flex flex-col items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl bg-blue-200 hover:bg-blue-300 p-4">
               <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://images.pexels.com/photos/1089164/pexels-photo-1089164.jpeg?auto=compress&cs=tinysrgb&w=600" alt="blogs" />
               <div className="flex flex-col justify-between p-4 leading-normal">

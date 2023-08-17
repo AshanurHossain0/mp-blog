@@ -6,24 +6,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
 
 .poster{
-    background-image: url("https://images.pexels.com/photos/2909077/pexels-photo-2909077.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-image: url("https://img.freepik.com/free-photo/businessman-with-world-his-hand_53876-97641.jpg?w=740&t=st=1692274725~exp=1692275325~hmac=857c75d618cf35719045d6d768b6eb1236215b8a6a44cac894bde66473665589");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    height: 100vh;
 }
 .poster2{
-    /* background-image: url("https://images.pexels.com/photos/4919373/pexels-photo-4919373.jpeg?auto=compress&cs=tinysrgb&w=600"); */
-    /* background-image: url("https://images.pexels.com/photos/3764000/pexels-photo-3764000.jpeg?auto=compress&cs=tinysrgb&w=600"); */
-    /* background-image: url("https://images.pexels.com/photos/2662792/pexels-photo-2662792.jpeg?auto=compress&cs=tinysrgb&w=600"); */
     
-    background-image: url("https://images.pexels.com/photos/7288168/pexels-photo-7288168.jpeg?auto=compress&cs=tinysrgb&w=600");
+    
+    background-image: url("https://as2.ftcdn.net/v2/jpg/03/89/23/79/1000_F_389237945_fEbmyaFfrVk5Xaj3Qv9jeH1alTNltqhP.jpg");
     background-repeat: no-repeat;
-    background-size: 800px;
+    background-size: cover;
     background-position: center;
+    height: 100vh;
 }
 .poster3{
-    background-image: url("https://images.pexels.com/photos/1927320/pexels-photo-1927320.jpeg?auto=compress&cs=tinysrgb&w=600");
-    /* background-image: url("https://images.pexels.com/photos/3764000/pexels-photo-3764000.jpeg?auto=compress&cs=tinysrgb&w=600"); */
-    background-repeat: no-repeat;
-    background-size: 800px;
+    background-image: url("https://img.freepik.com/free-vector/colored-points-connected-net_1048-12426.jpg?w=996&t=st=1692273258~exp=1692273858~hmac=227ce96eea38757e27a32a5e5406e73667e2a63cd6e90090e2e65addb6c11bc6");
+    background-size: cover;
     background-position: center;
+    height: 100vh;
 }

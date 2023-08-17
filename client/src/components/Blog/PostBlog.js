@@ -39,32 +39,32 @@ function PostBlog() {
     }
 
     return (
-        <div class="container mx-auto px-4 py-8 ">
-            <div class="max-w-4xl mx-auto bg-white p-8 rounded shadow-md ">
-                <h2 class="text-2xl font-semibold mb-6 text-center">Write Your Blog To Post</h2>
+        <div className="container mx-auto px-4 py-8 ">
+            <div className="max-w-4xl mx-auto bg-white p-8 rounded shadow-md ">
+                <h2 className="text-2xl font-semibold mb-6 text-center">Write Your Blog To Post</h2>
                 <form onSubmit={(e) => submit(e)}>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" value={subject} class="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setSubject(e.target.value)} />
+                    <div className="mb-4">
+                        <label className="block text-gray-700 font-semibold mb-2" for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" value={subject} className="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setSubject(e.target.value)} />
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="title">Title</label>
-                        <input type="text" id="title" name="title" value={title} class="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setTitle(e.target.value)} />
+                    <div className="mb-4">
+                        <label className="block text-gray-700 font-semibold mb-2" for="title">Title</label>
+                        <input type="text" id="title" name="title" value={title} className="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setTitle(e.target.value)} />
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="tags">Tags (seperate by comma)</label>
-                        <input type="text" id="tags" name="tags" value={tag} class="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setTag(e.target.value)} />
+                    <div className="mb-4">
+                        <label className="block text-gray-700 font-semibold mb-2" for="tags">Tags (seperate by comma)</label>
+                        <input type="text" id="tags" name="tags" value={tag} className="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setTag(e.target.value)} />
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="topic">Topic</label>
-                        <input type="text" id="topic" name="topic" value={topic} class="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setTopic(e.target.value)} />
+                    <div className="mb-4">
+                        <label className="block text-gray-700 font-semibold mb-2" for="topic">Topic</label>
+                        <input type="text" id="topic" name="topic" value={topic} className="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setTopic(e.target.value)} />
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="body">Body</label>
-                        <textarea id="body" name="body" value={body} rows="5" class="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setBody(e.target.value)}></textarea>
+                    <div className="mb-4">
+                        <label className="block text-gray-700 font-semibold mb-2" for="body">Body</label>
+                        <textarea id="body" name="body" value={body} rows="5" className="w-full border rounded py-2 px-3 text-gray-700" required onChange={(e) => setBody(e.target.value)}></textarea>
                     </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Submit</button>
+                    <div className="text-center">
+                        <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Submit</button>
                     </div>
                 </form>
             </div>
